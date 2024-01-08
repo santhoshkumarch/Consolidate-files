@@ -21,7 +21,7 @@ def unzip_all_files_in_folder(folder_path, output_folder):
             unzip_gz_file(gz_file_path, output_file_path)
 
 # Example usage:
-input_folder = '/Users/santhoshkumar/tazapay/Payout Recon/PPRO/settlements/chargeback.csv'
-output_folder = '/Users/santhoshkumar/tazapay/Payout Recon/PPRO/settlements/chargeback.csv/unzipped/'
+input_folder = '/Users/santhoshkumar/tazapay/Payout Recon/PPRO/settlements/20240101/'
+output_folder = '/Users/santhoshkumar/tazapay/Payout Recon/PPRO/settlements/20240101/unzipped/'
 
 unzip_all_files_in_folder(input_folder, output_folder)
