@@ -38,10 +38,10 @@ if __name__ == "__main__":
     bucket_name = 'payout-recon'
 
     # Replace with your local file or folder path
-    local_path = '/Users/santhoshkumar/tazapay/Payout Recon/PPRO/txn/2024/failed/'
+    local_path = '/Users/santhoshkumar/tazapay/Payout Recon/PPRO/txn/2024/fundsRxd/'
 
     # Replace with the desired S3 path
-    s3_path = 'ppro/txn/failed/raw/past-data/2024/'
+    s3_path = 'ppro/txn/funds-received/raw/past-data/2024/'
 
     # Upload to S3
     upload_to_s3(local_path, bucket_name, s3_path)
