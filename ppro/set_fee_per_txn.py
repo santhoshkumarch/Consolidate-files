@@ -3,7 +3,7 @@ import glob
 import os
 
 # Replace 'your_folder_path' with the actual path to your folder containing CSV files
-folder_path = '/Users/santhoshkumar/tazapay/Payout Recon/PPRO/settlements/settle/volume_per_transaction/unzipped/'
+folder_path = '/Users/santhoshkumar/tazapay/Payout Recon/PPRO/settlements/settle/fee_per_transaction/unzipped/'
 
 # Get a list of all CSV files in the folder
 csv_files = glob.glob(os.path.join(folder_path, '*.csv'))
@@ -14,7 +14,7 @@ for csv_file_path in csv_files:
     df = pd.read_csv(csv_file_path)
 
     # Drop the last two rows
-    df = df[:-2]
+    # df = df[:-4]
 
     # Save the modified DataFrame back to a CSV file
     file_name = "modified_file.csv"
@@ -25,13 +25,18 @@ for csv_file_path in csv_files:
     # Check if there are rows in the DataFrame
     if not dfnew.empty:
         # Get the last row
-        last_row = dfnew.iloc[-1]
+        SETTLEMENT_DATE = dfnew.iloc[-3]
+
+
+        # print("FX_FEE_RATE_PLN_USD", FX_FEE_RATE_PLN_USD)
+        # print("FX_CONVERSION_RATE_PLN_USD", FX_CONVERSION_RATE_PLN_USD)
+        # print("SETTLEMENT_DATE", SETTLEMENT_DATE)
 
         # Create a new column in the existing DataFrame with 'last_row2' as the value for the entire column
-        dfnew[last_row["MERCHANT_TX_ID"]] = last_row["TX_ID"]
-
+        dfnew[SETTLEMENT_DATE["MERCHANT_TX_ID"]] = SETTLEMENT_DATE["TX_ID"]
+        
         # Drop the last two rows from the updated DataFrame
-        dfnew = dfnew[:-2]
+        dfnew = dfnew[:-4]
 
         # Save the updated DataFrame to the existing CSV file
         dfnew.to_csv(csv_file_path, index=False)
