@@ -30,9 +30,8 @@ def write_to_text_file(output, output_file_path):
         for entry in output:
             file.write(str(entry) + ",\n")
 
-# Example usage:
-csv_file_path = '/Users/santhoshkumar/tazapay/Payout Recon/Sofort/txn/payment_transactions.csv'
-output_file_path = '/Users/santhoshkumar/tazapay/Payout Recon/Sofort/txn/output.txt'  # Replace with the desired output file path
+csv_file_path = '/Users/santhoshkumar/tazapay/Payout Recon/Standard Chartered bank (SCB)/Disbursement file/ExportPymt.csv'
+output_file_path = '/Users/santhoshkumar/tazapay/Payout Recon/Standard Chartered bank (SCB)/Disbursement file/output.txt'  # Replace with the desired output file path
 
 result = get_table_heading(csv_file_path)
 write_to_text_file(result, output_file_path)
